@@ -1,4 +1,4 @@
-﻿namespace Simple_Calculator
+namespace Simple_Calculator
 {
     class Program
     {
@@ -14,35 +14,42 @@
             Console.WriteLine("[A]dd");
             Console.WriteLine("[S]ubtract");
             Console.WriteLine("[M]ultiply");
-            Console.Write("Your choice: ");
-            char choice = char.Parse(Console.ReadLine());
-            Console.WriteLine();
-            #endregion
+            Console.WriteLine("[E]xit");
+            bool Case= true;
+            while (Case=true)
+            { 
+                Console.Write("Your choice: ");
+                char choice = char.Parse(Console.ReadLine());
+                Console.WriteLine();
+                #endregion
             #region SwitchCase
-            switch (choice)
-            {
-                case 'A':
-                case 'a':
-                    Addition(num1, num2);
-                    break;
-                case 'S':
-                case 's':
-                    Subtraction(num1, num2);
-                    break;
-                case 'M':
-                case 'm':
-                    Multiplication(num1, num2);
-                    break;
-                default:
-                    Console.WriteLine("Invalid option");
-                    break;
+                switch (choice)
+                {
+                    case 'A':
+                    case 'a':
+                        Addition(num1, num2);
+                        break;
+                    case 'S':
+                    case 's':
+                        Subtraction(num1, num2);
+                        break;
+                    case 'M':
+                    case 'm':
+                        Multiplication(num1, num2);
+                        break;
+                    case 'E':
+                    case 'e':
+                        Case=false;
+                        break;
+                    default:
+                        Console.WriteLine("Invalid option");
+                        break;
+                }
             }
-            Console.WriteLine("\nPress Any Key To Close The program");
-            Console.ReadKey();
             #endregion
         }
         #region CheckInput
-        static double ReadInput()
+        static double ReadInput()//TryParse (SelfStudy)
         {
             double number;
             while (!double.TryParse(Console.ReadLine(), out number))
